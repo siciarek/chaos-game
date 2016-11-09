@@ -1,5 +1,5 @@
-Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu
------------------------------------------------------------------------------------------------
+Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu
+------------------------------------------------------------------------------------------------
 
 .. _PDF: ../doc/document.pdf
 

@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Chaos Game</title>
@@ -8,17 +8,15 @@
 
 <canvas id="board"></canvas>
 
-<script src="js/chaos-game.js"></script>
+<script src="chaos-game.js"></script>
+<script src="fractal.js"></script>
 
 <script>
 
-    // Golden ratio:
-    var PHI = (1 + Math.sqrt(5)) / 2;
-
     /**
-     * When n = 5, use
-     * r = 1 / (1 + PHI)
-     * for the best match of the fractal parts
+     * When n = 5, use golden ratio formula for better result
+     * var PHI = (1 + Math.sqrt(5)) / 2;
+     * var n = 3, r = 1 / (1 + PHI), q = [];
      */
 
     var n = 3, r = 0.5, q = [];

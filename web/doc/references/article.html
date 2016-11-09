@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1. Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu &mdash; Chaos game 1.0 - dokumentacja</title>
+    <title>1. Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu &mdash; Chaos game 1.0 - dokumentacja</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Chaos game 1.0 - dokumentacja" href="../index.html" />
-    <link rel="prev" title="Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu" href="../index.html" /> 
+    <link rel="prev" title="Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu" href="../index.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,7 +35,7 @@
           <a href="../genindex.html" title="Indeks ogólny"
              accesskey="I">indeks</a></li>
         <li class="right" >
-          <a href="../index.html" title="Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu"
+          <a href="../index.html" title="Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu"
              accesskey="P">wstecz</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Chaos game 1.0 - dokumentacja</a> &raquo;</li> 
       </ul>
@@ -47,40 +47,44 @@
           <div class="body" role="main">
             
   <div class="section" id="chaos-game-czyli-nauka-panowania-nad-chaosem-dla-programistow-w-ramach-spedzania-wolnego-czasu">
-<h1>1. Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu<a class="headerlink" href="#chaos-game-czyli-nauka-panowania-nad-chaosem-dla-programistow-w-ramach-spedzania-wolnego-czasu" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><em>Chaos game</em> dla niewtajemniczonego brzmi dość złowrogo i przywodzi na myśl gry typu FPP,
-gdzie do tłumów kosmicznych najeźdźców strzela się z różnych strzelających urządzeń, najczęściej dużego kalibru.</p>
+<h1>1. Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu<a class="headerlink" href="#chaos-game-czyli-nauka-panowania-nad-chaosem-dla-programistow-w-ramach-spedzania-wolnego-czasu" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p><em>Chaos game</em> (gra w chaos) dla niewtajemniczonego brzmi dość złowrogo i przywodzi na myśl gry typu FPP,
+gdzie do tłumów kosmicznych najeźdźców strzela się z różnych strzelających urządzeń, najczęściej dość dużego kalibru.</p>
 <p>Prawda nie jest aż tak atrakcyjna dla fanów e-sportu, aczkolwiek może sprawić, że przez chwilę opuścimy broń
-i zastanowimy się nad istotą chaosu (oczywiście tego policzalnego).</p>
-<div class="section" id="o-co-chodzi">
-<h2>1.1. O co chodzi<a class="headerlink" href="#o-co-chodzi" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>Termin <em>Chaos game</em> został podany przez Barnsleya (rozszerzyć to) i dotyczył prostej matematycznej zabawy, którą można opisać
-następująco:</p>
+i zastanowimy się nad istotą chaosu (oczywiście tego policzalnego). Bo prawdą jest, że wiele rzeczy, które
+nazywamy <em>chaosem</em> oznacza coś czego nie rozumiemy i nie potrafimy wykorzystać, tak było ze statystyką,
+medycyną czy pogodą, jednak po latach badań nauczyliśmy się wydobywać z chaosu wiedzę.</p>
+<p><em>Chaos game</em> może nie jest aż tak użytecznym elementem teorii chaosu jak Atraktor Lorenza, czy bifurkacja,
+ale pozwoli w sposób widoczny, łatwy i przyjemny dotknąć natury zagadnienia.</p>
+<div class="section" id="o-co-chodzi-z-tym-calym-chaosem">
+<h2>1.1. O co chodzi z tym całym chaosem<a class="headerlink" href="#o-co-chodzi-z-tym-calym-chaosem" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Termin <em>Chaos game</em> został pierwszy raz podany przez Michaela F. Barnsleya (tak, tego od paprotki) w 1988 r. w słynnej publikacji <em>Fractals Everywhere</em>
+i dotyczył prostego algorytmu, który można opisać następująco:</p>
 <p>Warunki początkowe</p>
 <blockquote>
 <div><ul class="simple">
-<li>W układzie współrzędnych wyznaczyć zbiór <img class="math" src="../_images/math/413f8a8e40062a9090d9d50b88bc7b551b314c26.png" alt="n"/> wierzchołków wielokąta (najlepiej foremnego).</li>
-<li>Losowo wybrać pierwszy <em>punkt aktywny</em> (może być dowolnym punktem przestrzeni, wewnątrz lub na zewnątrz wielokąta).</li>
+<li>W układzie współrzędnych wyznaczyć zbiór <img class="math" src="../_images/math/413f8a8e40062a9090d9d50b88bc7b551b314c26.png" alt="n"/> wierzchołków wielokąta (najlepiej foremnego, Barnsley użył trójkąta równobocznego) .</li>
+<li>Losowo wybrać pierwszy <em>punkt aktywny</em> (może być dowolnym punktem na płaszczyźnie, wewnątrz lub na zewnątrz wielokąta, może być nawet jednym z jego wierzchołków, Barnsley użył punktu wewnątrz).</li>
 </ul>
 </div></blockquote>
 <p>Algorytm</p>
 <blockquote>
 <div><ul class="simple">
-<li>Narysować <em>punkt aktywny</em></li>
-<li>Wylosować <em>wierzchołek wielokąta</em> z uwzględnieniem ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/></li>
-<li>Wyznaczyć nowy punkt leżący na odcinku łączącym <em>punkt aktywny</em> z wylosowanym wierzchołkiem znajdący się odległości <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/> od wylosowanego wierzchołka</li>
-<li>Nowy punkt staje się <em>punktem aktywnym</em></li>
+<li>Narysuj <em>punkt aktywny</em>.</li>
+<li>Wylosuj <em>wierzchołek wielokąta</em> z uwzględnieniem tabeli ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/> (w pierwotnej wersji nie było ograniczeń).</li>
+<li>Wyznacz <em>nowy punkt</em> należący do odcinka łączącego <em>punkt aktywny</em> z wylosowanym wierzchołkiem wielokąta znajdący się odległości <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/> od wylosowanego wierzchołka wielokąta, gdzie <img class="math" src="../_images/math/c5be3d8401392aaa69ad6d140abfa21dc05c510b.png" alt="0 &lt; r &lt; 1"/> (w pierwotnej wersji <img class="math" src="../_images/math/4ab5a7c55971c7d9828f3d6ed1d3e7ae5791b06f.png" alt="r = 0.5"/>).</li>
+<li>Oznacz <em>nowy punkt</em> jako <em>punkt aktywny</em>.</li>
 </ul>
 </div></blockquote>
 <p>Algorytm powtarzamy wyznaczoną ilość powtórzeń <img class="math" src="../_images/math/ba891e7570304d1516bc4cdeef1205db248710fb.png" alt="times"/>. W literaturze stosuje się zazwyczaj <img class="math" src="../_images/math/4c81057e00ced228884a35c41a09a65f0f1b4a93.png" alt="times \approx 10000"/>, jako dość wydajny kompromis pomiędzy efektem wizualnym a łącznym czasem wykonania algorytmu.</p>
-<p>W wyniku manipulacji parameterami <img class="math" src="../_images/math/7f7413adf2c26f6bb211ef84d6289a3cdd5f6c92.png" alt="n, r, q"/> oraz <cite>times</cite>, podobno, można osiągnąć interesujące wizualnie wyniki, co mam nadzieję udowodnić w dalszej części.</p>
+<p>W wyniku manipulacji parameterami <img class="math" src="../_images/math/7f7413adf2c26f6bb211ef84d6289a3cdd5f6c92.png" alt="n, r, q"/> oraz <img class="math" src="../_images/math/ba891e7570304d1516bc4cdeef1205db248710fb.png" alt="times"/>, podobno, można osiągnąć interesujące wizualnie wyniki, co mam nadzieję udowodnić w dalszej części.</p>
 <p>Dla wygody zakładamy, że</p>
 <blockquote>
 <div><ul class="simple">
-<li>wielokąty będą foremne,</li>
+<li>wszytkie wielokąty będą foremne,</li>
 <li>pierwszy <em>punkt aktywny</em> będzie miał współrzędne <img class="math" src="../_images/math/e4e85769e8fcc8d4c6a190b0a5d5fb280b999cce.png" alt="(0, 0)"/>,</li>
-<li>wartości współrzędnych wierzchołków, będą większe od zera i będą budować wielokąty foremne,</li>
-<li>zaś ilość powtórzeń <img class="math" src="../_images/math/928eabd1aa3d2957a9f6def0db057fe69fb33ea6.png" alt="times = 10000"/>.</li>
+<li>wartości współrzędnych wierzchołków, będą większe od zera (jak to w grafice komputerowej),</li>
+<li>zaś domyślna ilość powtórzeń <img class="math" src="../_images/math/928eabd1aa3d2957a9f6def0db057fe69fb33ea6.png" alt="times = 10000"/>.</li>
 </ul>
 </div></blockquote>
 <p>Oczywiście zachęcam do eksperymentowania z wartościami tych ustawień, jednak uprzedzam, nie mają zbyt dużego wpływu na osiągane wyniki.</p>
@@ -94,19 +98,18 @@ następująco:</p>
 <blockquote>
 <div><ul class="simple">
 <li>wielokąt będzie miał trzy wierzchołki,</li>
-<li>nowy punkt pojawi się w połowie odległości między punktem aktywnym a wylosowanym wierzchołkiem,</li>
-<li>wierzchołki losowane są bez żadnych dodatkowych ograniczeń.</li>
+<li>nowy punkt pojawi się w połowie odległości między <em>punktem aktywnym</em> a <em>wylosowanym wierzchołkiem</em>,</li>
+<li>ponieważ tabela ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/> jest pusta, wierzchołki losowane są bez żadnych dodatkowych ograniczeń.</li>
 </ul>
 </div></blockquote>
-<p>Oto co otrzymamy:</p>
+<p>Oto co otrzymujemy.</p>
 <p>[Obrazek trójkąt]</p>
 <p>Pojawił się&nbsp;Trójkąt Sierpińskiego, całkiem atrakcyjny wizualnie układ, mimo losowości wybierania wierzchołków.
 Świetnie, spróbujmy teraz z większą ilością wierzchołków, następny w kolejce <em>kwadrat</em>, opisujemy go następująco:</p>
 <div class="math">
 <p><img src="../_images/math/42d7e9f699a52dac7c61465375cdf342373a4455.png" alt="n = 4, r = 0.5, q = ()"/></p>
-</div><p>Rezultat niestety nie zachwyca:</p>
-<p>[Obrazek kwadrat 1]</p>
-<p>Spróbujmy dla większej ilości wierzchołków, <em>pięciokąt i sześciokąt foremny</em></p>
+</div><p>[Obrazek kwadrat 1]</p>
+<p>Rezultat niestety nie zachwyca. Spróbujmy dla większej ilości wierzchołków, np. użyjmy <em>pięciokąta i sześciokąta foremnego</em>.</p>
 <div class="math">
 <p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
 </div><p>[Obrazek pięciokąt 1]</p>
@@ -149,14 +152,303 @@ zapiszemy jako <img class="math" src="../_images/math/0f66656648c21d689a3e71fb0a
 <div class="math">
 <p><img src="../_images/math/8dfcb745dc845fe9b5523677db5f8dc8fc9239c8.png" alt="n = 4, r = 0.5, q = (0)"/></p>
 </div><p>[Obrazek kwadrat 2]</p>
-<p>No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne.</p>
+<p>No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne. Brawo Ty.</p>
 </div>
 <div class="section" id="wiecej-o-tabeli-ograniczen">
 <h2>1.3. Więcej o tabeli ograniczeń<a class="headerlink" href="#wiecej-o-tabeli-ograniczen" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>W poprzednim przykładzie po raz pierwszy użyliśmy niepustej tabeli ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>, należy się więc kilka słów z czym
 to się je, to znaczy, co zawiera ta tablica. Wyjdziemy jednak od sposobu w jaki losowane są wierzchołki, otóż wierzchołki
 figury użytej do gry przechowywane są w tablicy i w wyniku losowania wybierany jest jeden z indeksów tej tablicy, liczba całkowita
-z przedziału <img class="math" src="../_images/math/1dd73cf424013bde7633f9bb3e5e4aff3267ff45.png" alt="[0, n - 1]"/>.</p>
+z przedziału <img class="math" src="../_images/math/1dd73cf424013bde7633f9bb3e5e4aff3267ff45.png" alt="[0, n - 1]"/>. W tabeli <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/> umieszczone będą <em>odległości</em> wylosowanego indeksu w stosunku do zbioru ostatnich
+losowań. Odległość oznacza ilość pozycji od danego indeksu. Weźmy pod uwagę zbiór czterech punktów:</p>
+<div class="math">
+<p><img src="../_images/math/87dc8496bde9674004a3b05e4bd6ab760b73ceff.png" alt="points = { (0, 0), (200, 0), (200, 200), (0, 200) }"/></p>
+</div><p>jeżeli wylosowano wierzchołek o indeksie 0 <img class="math" src="../_images/math/e4e85769e8fcc8d4c6a190b0a5d5fb280b999cce.png" alt="(0, 0)"/> to w odległości 0 znajduje się ten sam punkt, więc ograniczenie <img class="math" src="../_images/math/0f66656648c21d689a3e71fb0a6c1dd56e6df16b.png" alt="q = (0)"/>
+oznacza, ni mniej ni więcej, tylko nowo wylosowany punkt, nie może być użyty, jeżeli został wylosowany poprzednim kroku.</p>
+<p>Odległość 1 oznacza wierzchołki znajdujące się w odległości 1 (oczywiście w pierścieniu modulo <img class="math" src="../_images/math/413f8a8e40062a9090d9d50b88bc7b551b314c26.png" alt="n"/>) od wybranego wierzchołka,
+czyli dla podanego punktu <img class="math" src="../_images/math/e4e85769e8fcc8d4c6a190b0a5d5fb280b999cce.png" alt="(0, 0)"/> będzie to <img class="math" src="../_images/math/216c25ea3684d6cbf35963a179ed700e8d1bd3ab.png" alt="(200, 0)"/>. Analogicznie odległość 2 oznacza dla tego przypadku
+<img class="math" src="../_images/math/d68523f9e075707d4c21b819d7703ff24e3a3507.png" alt="(200, 200)"/> a 3 <img class="math" src="../_images/math/20e4c39341cdca1de36035333a4fec252247fc3d.png" alt="(0, 200)"/>.</p>
+<p>Ciekawiej zaczyna się robić gdy tabela ograniczeń ma więcej niż jeden element, działa to mniej więcej tak, że na pozycji</p>
+<blockquote>
+<div><ul class="simple">
+<li>0 jest odległość dotycząca ostatniego udanego losowania</li>
+<li>1 jest odległość dotycząca przedostatniego udanego losowania</li>
+<li>2 jest odległość dotycząca przedprzed ostatniego udanego losowania</li>
+<li>i tak dalej, i tak dalej.</li>
+</ul>
+</div></blockquote>
+<p>Uwaga! losowanie jest uznane za udane, wtedy i tylko wtedy, gdy wylosowany indeks nie spełnia tych odległości.</p>
+<p>W tym celu wewnątrz aplikacji wspierającej <em>grę w chaos</em> musi być przechowywana lista ostatnio dokonanych udanych losowań
+o rozmiarze przynajmniej takim jak tabela ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>. Przykład więcej niż jednej wartości w tabeli ograniczeń:</p>
+<p>Ostatnie 2 losowania wyglądały następująco:</p>
+<div class="math">
+<p><img src="../_images/math/4929af2fa852ea2651e2d40d2d106f0279463b01.png" alt="log = (0, 1)"/></p>
+</div><p>Tabla ograniczeń:</p>
+<div class="math">
+<p><img src="../_images/math/77d6a1700595e1d93045a6ac597980e5223d35ea.png" alt="q = (2, 1)"/></p>
+</div><p>Wylosowano indeks 0 odległość od indeksu z ostatniego udanego losowania wynosi 2, warunek nie spełniony, ponawiamy losowanie.
+Wylosowano indeks 1 odległość od indeksu z ostatniego udanego losowania wynosi 1, ale odległość od przedostatniego wynosi 1 warunek nie spełniony, ponawiamy losowanie.
+Wylosowano indeks 3 odległość od indeksu z ostatniego udanego losowania wynosi 1, odległość od przedostatniego wynosi 2 warunek spełniony, losowanie udane.</p>
+<p>Trochę to zakręcone, ale łatwiej będzie zrozumieć gdy zobaczymy wyniki.
+W bieżącej publikacji zajmować się będziemy tabelami ograniczeń zawierającymi nie więcej niż 2 elementy.</p>
+</div>
+<div class="section" id="gra-z-tabela-ograniczen">
+<h2>1.4. Gra z tabelą ograniczeń<a class="headerlink" href="#gra-z-tabela-ograniczen" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Wracamy do naszego kwadratu i spróbujemy wykonać ćwiczenie z jednoelementową tabelą ograniczeń o wartościach 1, 2 i 3.</p>
+<div class="math">
+<p><img src="../_images/math/3cbeb12b0a76f2929baed9a557dbf97a1584d3b9.png" alt="n = 4, r = 0.5, q = (1)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<div class="math">
+<p><img src="../_images/math/f0379ba19d5e6e90a4d3b65d51c5818fbafd696c.png" alt="n = 4, r = 0.5, q = (2)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<div class="math">
+<p><img src="../_images/math/ab18df174b8f4ae5e03e5df0044e7a756dd419ae.png" alt="n = 4, r = 0.5, q = (3)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<p>Jak widać, poza <img class="math" src="../_images/math/693c4ea772bf8199c3c6349578c48a136ae4d0ab.png" alt="q = (1)"/> i <img class="math" src="../_images/math/0052d1050edd397be2968f1c908fe41d9fced780.png" alt="q = (3)"/>, które wykazują wyraźne podobieństwo, pozostałe fraktale są od siebie bardzo różne.</p>
+<p>Teraz spróbujmy założyć złożone ograniczenia do dwóch poprzednich ruchów.</p>
+<div class="math">
+<p><img src="../_images/math/731072e23bdba184d0e028d58ecc860bc8296ac8.png" alt="n = 4, r = 0.5, q = (1,3)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<div class="math">
+<p><img src="../_images/math/cc07944f24cd0aa31f15f632ece5b4fd611c4776.png" alt="n = 4, r = 0.5, q = (2,2)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<div class="math">
+<p><img src="../_images/math/e02706a8172b7da93e8453574af7f48e82b28187.png" alt="n = 4, r = 0.5, q = (3,1)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<p>Jak widać w obu przypadkach <img class="math" src="../_images/math/30c67b50a33f97125170d2688da37315b1876ec7.png" alt="q = (1, 3)"/> i  <img class="math" src="../_images/math/f120c751ed43091d3738773110f08b2404d2f523.png" alt="q = (3, 1)"/>, o dziwo, otrzymaliśmy taki sam wynik, kolejna dziwna cecha chaosu, nie wiadomo kiedy pojawi się jakiś niespodziewany porządek.</p>
+</div>
+<div class="section" id="bardziej-zlozone-wielokaty">
+<h2>1.5. Bardziej złożone wielokąty<a class="headerlink" href="#bardziej-zlozone-wielokaty" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Pozwolę sobie zaprezentować tylko, kilka, bardziej złożonych wariantów dla pięcio i sześciokąta foremnego, na początek z pustą tabelą ograniczeń.</p>
+<p>W przypadku pięciokąta mam małą uwagę, mimo że na stronie <em>Wolfram</em>, proponują użyć <img class="math" src="../_images/math/77a572b6f150da689217f27902b6e0abaa14126c.png" alt="r = 3/8"/>, lepszy rezultat (segmenty fraktala bardziej się ze sobą stykają) daje <img class="math" src="../_images/math/52bc9cfecaeb8ddd74f30ae37a47dbace382d40e.png" alt="r = \frac{ 1 }{ 1 + \varphi }"/>, gdzie <img class="math" src="../_images/math/f943a0eac3e9e9e7ad984e7273d8f2a7aaaa9892.png" alt="\varphi"/> oznacza słynną formułę <em>złotego podziału</em> (golden ratio)</p>
+<div class="math">
+<p><img src="../_images/math/e21aa7ead5301899ca2a2d96364dc0c2cb11e5b7.png" alt="\varphi = \frac{1 + {\sqrt {5}}}{2} \approx 1,6180339887"/></p>
+</div><p>Przykłady z pustą tabelą ograniczeń:</p>
+<div class="math">
+<p><img src="../_images/math/03465f23b77923bc1ba3ce8910b64c5fee24b85a.png" alt="n = 5, r = \frac{ 1 }{ 1 + \varphi }, q = ()"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<div class="math">
+<p><img src="../_images/math/84982d31b46fab99bf6c694e955da4d32b7d5ee8.png" alt="n = 6, r = \frac{ 1 }{ 3 }, q = ()"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<p>Przykłady z niepustą tabelą ograniczeń:</p>
+<div class="math">
+<p><img src="../_images/math/a6dbd44d992a8aee1f67f9ef0ee0145389465edd.png" alt="n = 5, r = 0.5, q = (0)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<div class="math">
+<p><img src="../_images/math/57937c6088506222c126b02d2bc08e280ea17594.png" alt="n = 6, r = 0.5, q = (1,4)"/></p>
+</div><p>[Obrazek kwadrat 3]</p>
+<p>Jak widać świat <em>gry w chaos</em> jest w stanie dostarczyć całkiem miłych wrażeń estetycznych, główne założenia pozwalają
+eksperymentować zarówno przez zmiany wartości parametrów <img class="math" src="../_images/math/1a282c47ca2369282d5d74ea6dcfa3a172591be9.png" alt="n,r,q"/> jak i generować trójwymiarowe fraktale w przestrzeni.
+Tu ograniczyłem się do najczęściej publikowanych obiektów.</p>
+<p>Przed nami część praktyczna, czyli, jak takie wyrosłe z chaosu fraktale wygenerować na swoim ekranie.</p>
+</div>
+<div class="section" id="zrob-to-sam">
+<h2>1.6. Zrób to sam<a class="headerlink" href="#zrob-to-sam" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Tytuł niniejszego rozdziału pewnie niewiele mówi młodszym czytelnikom ale dla wielu, kojarzy się on z popularnym
+niegdyś programem promującym majsterkowanie. Co było charakterystyczne w tym programie, otóż prowadzący, Pan Adam Słodowy
+pokazywał różne czynności na ekranie i wiele z nich faktycznie sam wykonywał, natomiast jeżeli dana czynność
+była długotrwała np. wycinanie dość skomplikowanych kształtów z puszki po konserwie, przeważnie zaczynał tylko, po czym
+przerywał i mówił &#8220;ale ja już tutaj sobie przygotowałem&#8221; i wyciągał z pod stołu elegancko wykończony element.</p>
+<p>Tak też i ja zrobię. Najpierw jednak o tym jak się do tego zabrałem.</p>
+<p>Ponieważ algorytmy powinny być niezależne od technologii postanowiłem ograniczyć zestaw użytych narzędzi wg zasad:</p>
+<blockquote>
+<div><ul class="simple">
+<li>użyte technologie muszą być dostępne każdemu, za darmo na dowolnej platformie</li>
+<li>w obrębie użytych technologii nie będzie korzystane z dodatkowych bibliotek</li>
+<li>prezentacja ograniczy się do dwóch kolorów białego (tło) i czarnego (pisak)</li>
+</ul>
+</div></blockquote>
+<p>Wybór padł na HTML5 i JavaScript. HTML5 bo ma dostępny element &lt;canvas&gt; wręcz idealny do tego typu operacji,
+javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do opisania logiki problemu jak i do sterowania warstwą prezentacji.</p>
+<p>Zgrubny podział na częśći:</p>
+<blockquote>
+<div><ul class="simple">
+<li>logiczną (logika biznesowa gry w chaos) skrypt <code class="docutils literal"><span class="pre">chaos-game.js</span></code></li>
+<li>prezentacyjną (logika generowania fraktala i obsługi części wizualnej) skrypt <code class="docutils literal"><span class="pre">fractal.js</span></code></li>
+<li>część spajająca (entry point aplikacji i kontener elementów) plik <code class="docutils literal"><span class="pre">index.html</span></code></li>
+</ul>
+</div></blockquote>
+<div class="section" id="logika-gry-w-chaos">
+<h3>1.6.1. Logika gry w chaos<a class="headerlink" href="#logika-gry-w-chaos" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">ChaosGame</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">q</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">r</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">q</span> <span class="o">=</span> <span class="nx">q</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">log</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">angle</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span>
+
+        <span class="kd">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">x</span><span class="o">:</span> <span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nx">y</span><span class="o">:</span> <span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="p">};</span>
+
+        <span class="kd">var</span> <span class="nx">vertex</span> <span class="o">=</span> <span class="p">{};</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">vertex</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nx">x</span><span class="o">:</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span>
+                    <span class="nx">y</span><span class="o">:</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">radius</span>
+                <span class="p">};</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">vertex</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nx">x</span><span class="o">:</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span>
+                    <span class="nx">y</span><span class="o">:</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span>
+                <span class="p">};</span>
+            <span class="p">}</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">vertex</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">getNextPoint</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">vertex</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getVertex</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">x</span><span class="o">:</span> <span class="nx">vertex</span><span class="p">.</span><span class="nx">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">,</span>
+            <span class="nx">y</span><span class="o">:</span> <span class="nx">vertex</span><span class="p">.</span><span class="nx">y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">valid</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">enabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+
+            <span class="nx">enabled</span> <span class="o">=</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+                <span class="o">&amp;&amp;</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+
+                <span class="o">||</span>
+
+                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+                <span class="o">&amp;&amp;</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+            <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">);</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nx">c</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">enabled</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">getVertex</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="nx">v</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">valid</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">[</span><span class="nx">v</span><span class="p">];</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generowanie-fraktala">
+<h3>1.6.2. Generowanie fraktala<a class="headerlink" href="#generowanie-fraktala" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">Fractal</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">times</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">,</span> <span class="nx">bgcolor</span><span class="p">,</span> <span class="nx">fgcolor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">game</span> <span class="o">=</span> <span class="nx">game</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">times</span> <span class="o">=</span> <span class="nx">times</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fgcolor</span> <span class="o">=</span> <span class="nx">fgcolor</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">bgcolor</span> <span class="o">=</span> <span class="nx">bgcolor</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">render</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">bgcolor</span><span class="p">;</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fgcolor</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">times</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+            <span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">getNextPoint</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+
+            <span class="nx">x</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+            <span class="nx">y</span> <span class="o">=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="entry-point-aplikacji">
+<h3>1.6.3. Entry point aplikacji<a class="headerlink" href="#entry-point-aplikacji" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Chaos Game<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&quot;margin:auto;background:grey;text-align:center&quot;</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;board&quot;</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;chaos-game.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;fractal.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * When n = 5, use golden ratio formula for better result</span>
+<span class="cm">     * var PHI = (1 + Math.sqrt(5)) / 2;</span>
+<span class="cm">     * var n = 3, r = 1 / (1 + PHI), q = [];</span>
+<span class="cm">     */</span>
+
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">r</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nx">q</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="kd">var</span> <span class="nx">times</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="p">(</span><span class="nx">size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bgcolor</span> <span class="o">=</span> <span class="s1">&#39;#FFF&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">fgcolor</span> <span class="o">=</span> <span class="s1">&#39;#000&#39;</span><span class="p">;</span>
+
+
+    <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">);</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ChaosGame</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">q</span><span class="p">);</span>
+    <span class="nx">game</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span> <span class="nx">radius</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">fractal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fractal</span><span class="p">(</span><span class="nx">game</span><span class="p">,</span> <span class="nx">times</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">,</span> <span class="nx">bgcolor</span><span class="p">,</span> <span class="nx">fgcolor</span><span class="p">);</span>
+    <span class="nx">fractal</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="podsumowanie">
+<h2>1.7. Podsumowanie<a class="headerlink" href="#podsumowanie" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 </div>
 </div>
 
@@ -171,17 +463,26 @@ z przedziału <img class="math" src="../_images/math/1dd73cf424013bde7633f9bb3e5
             </a></p>
   <h3><a href="../index.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#">1. Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu</a><ul>
-<li><a class="reference internal" href="#o-co-chodzi">1.1. O co chodzi</a></li>
+<li><a class="reference internal" href="#">1. Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu</a><ul>
+<li><a class="reference internal" href="#o-co-chodzi-z-tym-calym-chaosem">1.1. O co chodzi z tym całym chaosem</a></li>
 <li><a class="reference internal" href="#do-dziela">1.2. Do dzieła</a></li>
 <li><a class="reference internal" href="#wiecej-o-tabeli-ograniczen">1.3. Więcej o tabeli ograniczeń</a></li>
+<li><a class="reference internal" href="#gra-z-tabela-ograniczen">1.4. Gra z tabelą ograniczeń</a></li>
+<li><a class="reference internal" href="#bardziej-zlozone-wielokaty">1.5. Bardziej złożone wielokąty</a></li>
+<li><a class="reference internal" href="#zrob-to-sam">1.6. Zrób to sam</a><ul>
+<li><a class="reference internal" href="#logika-gry-w-chaos">1.6.1. Logika gry w chaos</a></li>
+<li><a class="reference internal" href="#generowanie-fraktala">1.6.2. Generowanie fraktala</a></li>
+<li><a class="reference internal" href="#entry-point-aplikacji">1.6.3. Entry point aplikacji</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#podsumowanie">1.7. Podsumowanie</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="../index.html"
-                        title="poprzedni rozdział">Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu</a></p>
+                        title="poprzedni rozdział">Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu</a></p>
         </div>
       </div>
       <div class="clearer"></div>
@@ -193,7 +494,7 @@ z przedziału <img class="math" src="../_images/math/1dd73cf424013bde7633f9bb3e5
           <a href="../genindex.html" title="Indeks ogólny"
              >indeks</a></li>
         <li class="right" >
-          <a href="../index.html" title="Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu"
+          <a href="../index.html" title="Chaos game czyli nauka panowania nad chaosem, dla programistów, w ramach spędzania wolnego czasu"
              >wstecz</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Chaos game 1.0 - dokumentacja</a> &raquo;</li> 
       </ul>
