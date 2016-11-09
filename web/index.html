@@ -23,7 +23,7 @@
 
     var n = 3, r = 0.5, q = [];
 
-    var points = 100000;
+    var times = 100000;
     var size = 640;
     var radius = (size / 2) - 20;
     var bgcolor = '#FFF';
@@ -37,7 +37,7 @@
     var game = new ChaosGame(n, r, q);
     game.init(canvas.width, canvas.height, radius);
 
-    var fractal = new Fractal(game, points, canvas, bgcolor, fgcolor);
+    var fractal = new Fractal(game, times, canvas, bgcolor, fgcolor);
     fractal.render(0, 0);
 
 </script>

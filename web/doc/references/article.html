@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu &mdash; Chaos game 1.0 - dokumentacja</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Chaos game 1.0 - dokumentacja" href="../index.html" />
+    <link rel="prev" title="Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu"
+             accesskey="P">wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Chaos game 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chaos-game-czyli-nauka-panowania-nad-chaosem-dla-programistow-w-ramach-spedzania-wolnego-czasu">
+<h1>1. Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu<a class="headerlink" href="#chaos-game-czyli-nauka-panowania-nad-chaosem-dla-programistow-w-ramach-spedzania-wolnego-czasu" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p><em>Chaos game</em> dla niewtajemniczonego brzmi dość złowrogo i przywodzi na myśl gry typu FPP,
+gdzie do tłumów kosmicznych najeźdźców strzela się z różnych strzelających urządzeń, najczęściej dużego kalibru.</p>
+<p>Prawda nie jest aż tak atrakcyjna dla fanów e-sportu, aczkolwiek może sprawić, że przez chwilę opuścimy broń
+i zastanowimy się nad istotą chaosu (oczywiście tego policzalnego).</p>
+<div class="section" id="o-co-chodzi">
+<h2>1.1. O co chodzi<a class="headerlink" href="#o-co-chodzi" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Termin <em>Chaos game</em> został podany przez Barnsleya (rozszerzyć to) i dotyczył prostej matematycznej zabawy, którą można opisać
+następująco:</p>
+<p>Warunki początkowe</p>
+<blockquote>
+<div><ul class="simple">
+<li>W układzie współrzędnych wyznaczyć zbiór <img class="math" src="../_images/math/413f8a8e40062a9090d9d50b88bc7b551b314c26.png" alt="n"/> wierzchołków wielokąta (najlepiej foremnego).</li>
+<li>Losowo wybrać pierwszy <em>punkt aktywny</em> (może być dowolnym punktem przestrzeni, wewnątrz lub na zewnątrz wielokąta).</li>
+</ul>
+</div></blockquote>
+<p>Algorytm</p>
+<blockquote>
+<div><ul class="simple">
+<li>Narysować <em>punkt aktywny</em></li>
+<li>Wylosować <em>wierzchołek wielokąta</em> z uwzględnieniem ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/></li>
+<li>Wyznaczyć nowy punkt leżący na odcinku łączącym <em>punkt aktywny</em> z wylosowanym wierzchołkiem znajdący się odległości <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/> od wylosowanego wierzchołka</li>
+<li>Nowy punkt staje się <em>punktem aktywnym</em></li>
+</ul>
+</div></blockquote>
+<p>Algorytm powtarzamy wyznaczoną ilość powtórzeń <img class="math" src="../_images/math/ba891e7570304d1516bc4cdeef1205db248710fb.png" alt="times"/>. W literaturze stosuje się zazwyczaj <img class="math" src="../_images/math/4c81057e00ced228884a35c41a09a65f0f1b4a93.png" alt="times \approx 10000"/>, jako dość wydajny kompromis pomiędzy efektem wizualnym a łącznym czasem wykonania algorytmu.</p>
+<p>W wyniku manipulacji parameterami <img class="math" src="../_images/math/7f7413adf2c26f6bb211ef84d6289a3cdd5f6c92.png" alt="n, r, q"/> oraz <cite>times</cite>, podobno, można osiągnąć interesujące wizualnie wyniki, co mam nadzieję udowodnić w dalszej części.</p>
+<p>Dla wygody zakładamy, że</p>
+<blockquote>
+<div><ul class="simple">
+<li>wielokąty będą foremne,</li>
+<li>pierwszy <em>punkt aktywny</em> będzie miał współrzędne <img class="math" src="../_images/math/e4e85769e8fcc8d4c6a190b0a5d5fb280b999cce.png" alt="(0, 0)"/>,</li>
+<li>wartości współrzędnych wierzchołków, będą większe od zera i będą budować wielokąty foremne,</li>
+<li>zaś ilość powtórzeń <img class="math" src="../_images/math/928eabd1aa3d2957a9f6def0db057fe69fb33ea6.png" alt="times = 10000"/>.</li>
+</ul>
+</div></blockquote>
+<p>Oczywiście zachęcam do eksperymentowania z wartościami tych ustawień, jednak uprzedzam, nie mają zbyt dużego wpływu na osiągane wyniki.</p>
+</div>
+<div class="section" id="do-dziela">
+<h2>1.2. Do dzieła<a class="headerlink" href="#do-dziela" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Zabawę zaczniemy od <em>trójkąta równobocznego</em>, a wyznaczone przez nas parametry będą przedstawiały się następująco:</p>
+<div class="math">
+<p><img src="../_images/math/12e46dfb999bfc50420816ae098a772f702a8e29.png" alt="n = 3, r = 0.5, q = ()"/></p>
+</div><p>Co oznacza:</p>
+<blockquote>
+<div><ul class="simple">
+<li>wielokąt będzie miał trzy wierzchołki,</li>
+<li>nowy punkt pojawi się w połowie odległości między punktem aktywnym a wylosowanym wierzchołkiem,</li>
+<li>wierzchołki losowane są bez żadnych dodatkowych ograniczeń.</li>
+</ul>
+</div></blockquote>
+<p>Oto co otrzymamy:</p>
+<p>[Obrazek trójkąt]</p>
+<p>Pojawił się&nbsp;Trójkąt Sierpińskiego, całkiem atrakcyjny wizualnie układ, mimo losowości wybierania wierzchołków.
+Świetnie, spróbujmy teraz z większą ilością wierzchołków, następny w kolejce <em>kwadrat</em>, opisujemy go następująco:</p>
+<div class="math">
+<p><img src="../_images/math/42d7e9f699a52dac7c61465375cdf342373a4455.png" alt="n = 4, r = 0.5, q = ()"/></p>
+</div><p>Rezultat niestety nie zachwyca:</p>
+<p>[Obrazek kwadrat 1]</p>
+<p>Spróbujmy dla większej ilości wierzchołków, <em>pięciokąt i sześciokąt foremny</em></p>
+<div class="math">
+<p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
+</div><p>[Obrazek pięciokąt 1]</p>
+<div class="math">
+<p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
+</div><p>[Obrazek sześciokąt 1]</p>
+<p>Chyba nie tędy droga, chaos jak to chaos rządzi się swoimi prawami, bardzo ładnie zadziałał na trójkącie, ale zmiana ilości wierzchołków
+daje wyniki na poziomie szumu, jedno co widzimy, to to, że pomimo wyboru punktu startowego na zewnątrz figury, prawie wszystkie punkty
+wylądowały wewnątrz.</p>
+<p>Ponieważ zmiana ilości boków bez zmiany innych parametrów nie przyniosła zbyt spektakularnych efektów wracamy do <cite>kwadratu</cite>,
+ale zmienimy parametr <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/> o połowę.</p>
+<div class="math">
+<p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<p>No to wygląda znacznie lepiej, duże uporządkowanie, aczkolwiek dużo punktów trafiło na niewielką powierzchnię.
+Ciekawe co stanie się jeżeli pozmieniamy nieco parametr <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/>, np. nadając mu wartości odpowiednio 0.4, 0.6, 0.75, 0.9 i 0.99.</p>
+<div class="math">
+<p><img src="../_images/math/92f8df715af9dd9a4e97ba773989a9c56332b5cd.png" alt="n = 4, r = 0.4, q = ()"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<div class="math">
+<p><img src="../_images/math/eac296459ee2888beed8a8cab8090db501469e5c.png" alt="n = 4, r = 0.6, q = ()"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<div class="math">
+<p><img src="../_images/math/8955ce5ec2196acafdd6dc575eddfc9215ba7081.png" alt="n = 4, r = 0.75, q = ()"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<div class="math">
+<p><img src="../_images/math/f519f8238951c4895b3df8d93781340eb80dcbec.png" alt="n = 4, r = 0.9, q = ()"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<div class="math">
+<p><img src="../_images/math/dd23171f005e319d4ebf0ceee840eadc5b304ba1.png" alt="n = 4, r = 0.99, q = ()"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<p>Widać, że uporządkowanie chaosu przebiega nieregularnie i o ile dla wartości 0.25 i 0.4 wygląda obiecująco, przy 0.5 zanika,
+zaś dla 0.6 zdaje się wprowadzać jakieś &#8220;nitkowate&#8221; uporządkowanie o tyle dla &gt; 0.75 wszystko zaczyna być wchłaniane przez
+&#8220;czarną dziurę&#8221;. Chciałoby się powiedzieć jak to w chaosie, biorąc pod uwagę pierwotne znaczenie tego słowa,
+jako kosmicznej pramaterii.</p>
+<p>Pozostał nam jeszcze jeden parameter do regulacji określony jako <em>zadane ograniczenia</em> <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>.
+Trochę, na temat jaki charakter będą miały te ograniczenia, np. <em>nowy punkt nie może być taki sam jak poprzedni</em>,
+przy okazji wrócimy do startowej wartości parametru <img class="math" src="../_images/math/4ab5a7c55971c7d9828f3d6ed1d3e7ae5791b06f.png" alt="r = 0.5"/>. Ogranicznie <em>nowy punkt nie może być taki sam jak poprzedni</em>
+zapiszemy jako <img class="math" src="../_images/math/0f66656648c21d689a3e71fb0a6c1dd56e6df16b.png" alt="q = (0)"/>.</p>
+<div class="math">
+<p><img src="../_images/math/8dfcb745dc845fe9b5523677db5f8dc8fc9239c8.png" alt="n = 4, r = 0.5, q = (0)"/></p>
+</div><p>[Obrazek kwadrat 2]</p>
+<p>No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne.</p>
+</div>
+<div class="section" id="wiecej-o-tabeli-ograniczen">
+<h2>1.3. Więcej o tabeli ograniczeń<a class="headerlink" href="#wiecej-o-tabeli-ograniczen" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>W poprzednim przykładzie po raz pierwszy użyliśmy niepustej tabeli ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>, należy się więc kilka słów z czym
+to się je, to znaczy, co zawiera ta tablica. Wyjdziemy jednak od sposobu w jaki losowane są wierzchołki, otóż wierzchołki
+figury użytej do gry przechowywane są w tablicy i w wyniku losowania wybierany jest jeden z indeksów tej tablicy, liczba całkowita
+z przedziału <img class="math" src="../_images/math/1dd73cf424013bde7633f9bb3e5e4aff3267ff45.png" alt="[0, n - 1]"/>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Spis treści</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu</a><ul>
+<li><a class="reference internal" href="#o-co-chodzi">1.1. O co chodzi</a></li>
+<li><a class="reference internal" href="#do-dziela">1.2. Do dzieła</a></li>
+<li><a class="reference internal" href="#wiecej-o-tabeli-ograniczen">1.3. Więcej o tabeli ograniczeń</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Poprzedni temat</h4>
+  <p class="topless"><a href="../index.html"
+                        title="poprzedni rozdział">Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Chaos game czyli nauka panowania nad chaosem, dla programistów w ramach spędzania wolnego czasu"
+             >wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Chaos game 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Gdynia.
+      Utworzone przy pomocy <a href="http://sphinx-doc.org/">Sphinx</a>'a 1.3.3.
+    </div>
+  </body>
+</html>

@@ -93,10 +93,10 @@ function ChaosGame(n, r, q) {
     };
 }
 
-function Fractal(game, points, canvas, bgcolor, fgcolor) {
+function Fractal(game, times, canvas, bgcolor, fgcolor) {
     this.game = game;
     this.canvas = canvas;
-    this.points = points;
+    this.times = times;
     this.fgcolor = fgcolor;
     this.bgcolor = bgcolor;
 
@@ -107,7 +107,7 @@ function Fractal(game, points, canvas, bgcolor, fgcolor) {
         context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         context.fillStyle = this.fgcolor;
 
-        for (var i = 0; i < this.points; i++) {
+        for (var i = 0; i < this.times; i++) {
 
             context.fillRect(x, y, 1, 1);
 
