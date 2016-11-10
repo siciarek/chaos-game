@@ -12,7 +12,7 @@ function Fractal(game, times, canvas, bgcolor, fgcolor) {
         context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         context.fillStyle = this.fgcolor;
 
-        for (var i = 0; i < this.times; i++) {
+        while(times--) {
 
             context.fillRect(x, y, 1, 1);
 

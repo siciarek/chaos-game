@@ -22,6 +22,8 @@ function ChaosGame(n, r, q) {
 
         var angle = (2 * Math.PI) / this.n;
 
+        this.vertices = [];
+
         // Image center point
         var c = {
             x: width / 2,
@@ -38,7 +40,7 @@ function ChaosGame(n, r, q) {
         this.vertices.push(v);
 
         // Create other vertices and add them to the vertices list.
-        // New vertices are created by turning the previous point aroud the image center point.
+        // New vertices are created by rotating the previous point about an image center point.
         for (var i = 1; i < this.n; i++) {
 
             v = {
@@ -55,20 +57,19 @@ function ChaosGame(n, r, q) {
      *
      * @param x
      * @param y
-     * @returns {{x: number, y: number}}
+     * @returns {{x: number, y: number}} new point
      */
     this.getNextPoint = function (x, y) {
 
-        // Get newly chosen vertex.
+        // Chose the vertex
         var v = this.getVertex();
 
-        // and create the brand new point
-        var p = {
+        // and return new active point distant from the chosen vertex this.r * distance
+        // between the chosen vertex and the point generated previously.
+        return {
             x: v.x * (1 - this.r) + x * this.r,
             y: v.y * (1 - this.r) + y * this.r
         };
-
-        return p;
     };
 
     // Private methods
