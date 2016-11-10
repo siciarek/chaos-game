@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE project>
 
-<project name="baseapp" default="doc-html" basedir=".">
+<project name="baseapp" default="doc" basedir=".">
 
     <loadproperties srcFile="properties.conf"/>
 
