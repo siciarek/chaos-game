@@ -82,9 +82,10 @@ i dotyczył prostego algorytmu, który można opisać następująco:</p>
 <blockquote>
 <div><ul class="simple">
 <li>wszytkie wielokąty będą foremne,</li>
+<li>pierwszy wierzchołek każdego wielokąta będzie umiejscowiony na górze i będzie posiadał takie same współrzędne,</li>
 <li>pierwszy <em>punkt aktywny</em> będzie miał współrzędne <img class="math" src="../_images/math/e4e85769e8fcc8d4c6a190b0a5d5fb280b999cce.png" alt="(0, 0)"/>,</li>
 <li>wartości współrzędnych wierzchołków, będą większe od zera (jak to w grafice komputerowej),</li>
-<li>zaś domyślna ilość powtórzeń <img class="math" src="../_images/math/928eabd1aa3d2957a9f6def0db057fe69fb33ea6.png" alt="times = 10000"/>.</li>
+<li>zaś domyślna ilość powtórzeń <img class="math" src="../_images/math/7748c818b29aa92d5d24034028d719d7af6b070d.png" alt="times = 100000"/>.</li>
 </ul>
 </div></blockquote>
 <p>Oczywiście zachęcam do eksperymentowania z wartościami tych ustawień, jednak uprzedzam, nie mają zbyt dużego wpływu na osiągane wyniki.</p>
@@ -103,19 +104,19 @@ i dotyczył prostego algorytmu, który można opisać następująco:</p>
 </ul>
 </div></blockquote>
 <p>Oto co otrzymujemy.</p>
-<p>[Obrazek trójkąt]</p>
+<img alt="n = 3, r = 0.5, q = ()" class="align-center" src="../_images/triangle.png" />
 <p>Pojawił się&nbsp;Trójkąt Sierpińskiego, całkiem atrakcyjny wizualnie układ, mimo losowości wybierania wierzchołków.
 Świetnie, spróbujmy teraz z większą ilością wierzchołków, następny w kolejce <em>kwadrat</em>, opisujemy go następująco:</p>
 <div class="math">
 <p><img src="../_images/math/42d7e9f699a52dac7c61465375cdf342373a4455.png" alt="n = 4, r = 0.5, q = ()"/></p>
-</div><p>[Obrazek kwadrat 1]</p>
+</div><img alt="n = 4, r = 0.5, q = ()" class="align-center" src="../_images/square.png" />
 <p>Rezultat niestety nie zachwyca. Spróbujmy dla większej ilości wierzchołków, np. użyjmy <em>pięciokąta i sześciokąta foremnego</em>.</p>
 <div class="math">
-<p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
-</div><p>[Obrazek pięciokąt 1]</p>
+<p><img src="../_images/math/ffb7f58b989db58481347eff4ffca0842f278d6e.png" alt="n = 5, r = 0.5, q = ()"/></p>
+</div><img alt="n = 5, r = 0.5, q = ()" class="align-center" src="../_images/pentagon.png" />
 <div class="math">
-<p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
-</div><p>[Obrazek sześciokąt 1]</p>
+<p><img src="../_images/math/b878ed61a7e517143ef58242f93bff6c0b87581a.png" alt="n = 6, r = 0.5, q = ()"/></p>
+</div><img alt="n = 6, r = 0.5, q = ()" class="align-center" src="../_images/hexagon.png" />
 <p>Chyba nie tędy droga, chaos jak to chaos rządzi się swoimi prawami, bardzo ładnie zadziałał na trójkącie, ale zmiana ilości wierzchołków
 daje wyniki na poziomie szumu, jedno co widzimy, to to, że pomimo wyboru punktu startowego na zewnątrz figury, prawie wszystkie punkty
 wylądowały wewnątrz.</p>
@@ -123,41 +124,31 @@ wylądowały wewnątrz.</p>
 ale zmienimy parametr <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/> o połowę.</p>
 <div class="math">
 <p><img src="../_images/math/13b91df717334d92afd8246c124dae3c8f26c778.png" alt="n = 4, r = 0.25, q = ()"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
+</div><img alt="n = 4, r = 0.25, q = ()" class="align-center" src="../_images/square_r0_25.png" />
 <p>No to wygląda znacznie lepiej, duże uporządkowanie, aczkolwiek dużo punktów trafiło na niewielką powierzchnię.
-Ciekawe co stanie się jeżeli pozmieniamy nieco parametr <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/>, np. nadając mu wartości odpowiednio 0.4, 0.6, 0.75, 0.9 i 0.99.</p>
+Ciekawe co stanie się jeżeli pozmieniamy nieco parametr <img class="math" src="../_images/math/2ede365ad144ab396916ec60458da03860803078.png" alt="r"/>, np. nadając mu wartości odpowiednio 0.4, 0.6, 0.75 i 0.9.</p>
 <div class="math">
 <p><img src="../_images/math/92f8df715af9dd9a4e97ba773989a9c56332b5cd.png" alt="n = 4, r = 0.4, q = ()"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
+</div><img alt="n = 4, r = 0.4, q = ()" class="align-center" src="../_images/square_r0_4.png" />
 <div class="math">
 <p><img src="../_images/math/eac296459ee2888beed8a8cab8090db501469e5c.png" alt="n = 4, r = 0.6, q = ()"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
+</div><img alt="n = 4, r = 0.6, q = ()" class="align-center" src="../_images/square_r0_6.png" />
 <div class="math">
 <p><img src="../_images/math/8955ce5ec2196acafdd6dc575eddfc9215ba7081.png" alt="n = 4, r = 0.75, q = ()"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
+</div><img alt="n = 4, r = 0.75, q = ()" class="align-center" src="../_images/square_r0_75.png" />
 <div class="math">
 <p><img src="../_images/math/f519f8238951c4895b3df8d93781340eb80dcbec.png" alt="n = 4, r = 0.9, q = ()"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
-<div class="math">
-<p><img src="../_images/math/dd23171f005e319d4ebf0ceee840eadc5b304ba1.png" alt="n = 4, r = 0.99, q = ()"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
+</div><img alt="n = 4, r = 0.9, q = ()" class="align-center" src="../_images/square_r0_9.png" />
 <p>Widać, że uporządkowanie chaosu przebiega nieregularnie i o ile dla wartości 0.25 i 0.4 wygląda obiecująco, przy 0.5 zanika,
 zaś dla 0.6 zdaje się wprowadzać jakieś &#8220;nitkowate&#8221; uporządkowanie o tyle dla &gt; 0.75 wszystko zaczyna być wchłaniane przez
 &#8220;czarną dziurę&#8221;. Chciałoby się powiedzieć jak to w chaosie, biorąc pod uwagę pierwotne znaczenie tego słowa,
 jako kosmicznej pramaterii.</p>
-<p>Pozostał nam jeszcze jeden parameter do regulacji określony jako <em>zadane ograniczenia</em> <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>.
-Trochę, na temat jaki charakter będą miały te ograniczenia, np. <em>nowy punkt nie może być taki sam jak poprzedni</em>,
-przy okazji wrócimy do startowej wartości parametru <img class="math" src="../_images/math/4ab5a7c55971c7d9828f3d6ed1d3e7ae5791b06f.png" alt="r = 0.5"/>. Ogranicznie <em>nowy punkt nie może być taki sam jak poprzedni</em>
-zapiszemy jako <img class="math" src="../_images/math/0f66656648c21d689a3e71fb0a6c1dd56e6df16b.png" alt="q = (0)"/>.</p>
-<div class="math">
-<p><img src="../_images/math/8dfcb745dc845fe9b5523677db5f8dc8fc9239c8.png" alt="n = 4, r = 0.5, q = (0)"/></p>
-</div><p>[Obrazek kwadrat 2]</p>
-<p>No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne. Brawo Ty.</p>
 </div>
 <div class="section" id="wiecej-o-tabeli-ograniczen">
 <h2>1.3. Więcej o tabeli ograniczeń<a class="headerlink" href="#wiecej-o-tabeli-ograniczen" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>W poprzednim przykładzie po raz pierwszy użyliśmy niepustej tabeli ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>, należy się więc kilka słów z czym
-to się je, to znaczy, co zawiera ta tablica. Wyjdziemy jednak od sposobu w jaki losowane są wierzchołki, otóż wierzchołki
+<p>Dotychczas korzystaliśmy wyłącznie z pustej tabeli ograniczeń <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>, zanim zaczniemy tam umieszczać wartości,
+należy się kilka słów wyjaśnienia, z czym to się je, to znaczy, co zawiera ta tablica i jak z niej korzystać.</p>
+<p>Wyjdziemy jednak od sposobu w jaki losowane są wierzchołki, otóż wierzchołki
 figury użytej do gry przechowywane są w tablicy i w wyniku losowania wybierany jest jeden z indeksów tej tablicy, liczba całkowita
 z przedziału <img class="math" src="../_images/math/1dd73cf424013bde7633f9bb3e5e4aff3267ff45.png" alt="[0, n - 1]"/>. W tabeli <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/> umieszczone będą <em>odległości</em> wylosowanego indeksu w stosunku do zbioru ostatnich
 losowań. Odległość oznacza ilość pozycji od danego indeksu. Weźmy pod uwagę zbiór czterech punktów:</p>
@@ -168,6 +159,8 @@ oznacza, ni mniej ni więcej, tylko nowo wylosowany punkt, nie może być użyty
 <p>Odległość 1 oznacza wierzchołki znajdujące się w odległości 1 (oczywiście w pierścieniu modulo <img class="math" src="../_images/math/413f8a8e40062a9090d9d50b88bc7b551b314c26.png" alt="n"/>) od wybranego wierzchołka,
 czyli dla podanego punktu <img class="math" src="../_images/math/e4e85769e8fcc8d4c6a190b0a5d5fb280b999cce.png" alt="(0, 0)"/> będzie to <img class="math" src="../_images/math/216c25ea3684d6cbf35963a179ed700e8d1bd3ab.png" alt="(200, 0)"/>. Analogicznie odległość 2 oznacza dla tego przypadku
 <img class="math" src="../_images/math/d68523f9e075707d4c21b819d7703ff24e3a3507.png" alt="(200, 200)"/> a 3 <img class="math" src="../_images/math/20e4c39341cdca1de36035333a4fec252247fc3d.png" alt="(0, 200)"/>.</p>
+<p>Powyższe nakłada podstawowe ograniczenie na dopuszczalne wartości:</p>
+<p>Każda wartość tablicy <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/> musi być liczbą całkowitą i należeć do zbioru <img class="math" src="../_images/math/3a89ee9cd7657f78d220dadb1055b40f47bfb853.png" alt="{0, 1, ..., n - 1, n}"/></p>
 <p>Ciekawiej zaczyna się robić gdy tabela ograniczeń ma więcej niż jeden element, działa to mniej więcej tak, że na pozycji</p>
 <blockquote>
 <div><ul class="simple">
@@ -194,28 +187,35 @@ W bieżącej publikacji zajmować się będziemy tabelami ograniczeń zawierają
 </div>
 <div class="section" id="gra-z-tabela-ograniczen">
 <h2>1.4. Gra z tabelą ograniczeń<a class="headerlink" href="#gra-z-tabela-ograniczen" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>Wracamy do naszego kwadratu i spróbujemy wykonać ćwiczenie z jednoelementową tabelą ograniczeń o wartościach 1, 2 i 3.</p>
+<p>Postaramy się teraz założyć ograniczeni przy pomocy niepustej tablicy <img class="math" src="../_images/math/23f1b45408e5b4130c0f940fcbfcec54492cbdcd.png" alt="q"/>.</p>
+<p>Pozostaniemy przy kwadracie <img class="math" src="../_images/math/2e974a688feb514c26fcba1885e36950bf56b477.png" alt="n = 4"/>, wartości <img class="math" src="../_images/math/4ab5a7c55971c7d9828f3d6ed1d3e7ae5791b06f.png" alt="r = 0.5"/> i spróbujemy wykonać ćwiczenie
+z jednoelementową tabelą ograniczeń o wartościach, odpowiednio 0, 1, 2 i 3.</p>
+<div class="math">
+<p><img src="../_images/math/8dfcb745dc845fe9b5523677db5f8dc8fc9239c8.png" alt="n = 4, r = 0.5, q = (0)"/></p>
+</div><img alt="n = 4, r = 0.5, q = (0)" class="align-center" src="../_images/square_r0_5_q0.png" />
+<p>No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne. Próbujemy kolejnych wartości.</p>
 <div class="math">
 <p><img src="../_images/math/3cbeb12b0a76f2929baed9a557dbf97a1584d3b9.png" alt="n = 4, r = 0.5, q = (1)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
+</div><img alt="n = 4, r = 0.5, q = (1)" class="align-center" src="../_images/square_r0_5_q1.png" />
 <div class="math">
 <p><img src="../_images/math/f0379ba19d5e6e90a4d3b65d51c5818fbafd696c.png" alt="n = 4, r = 0.5, q = (2)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
+</div><img alt="n = 4, r = 0.5, q = (2)" class="align-center" src="../_images/square_r0_5_q2.png" />
 <div class="math">
 <p><img src="../_images/math/ab18df174b8f4ae5e03e5df0044e7a756dd419ae.png" alt="n = 4, r = 0.5, q = (3)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
-<p>Jak widać, poza <img class="math" src="../_images/math/693c4ea772bf8199c3c6349578c48a136ae4d0ab.png" alt="q = (1)"/> i <img class="math" src="../_images/math/0052d1050edd397be2968f1c908fe41d9fced780.png" alt="q = (3)"/>, które wykazują wyraźne podobieństwo, pozostałe fraktale są od siebie bardzo różne.</p>
-<p>Teraz spróbujmy założyć złożone ograniczenia do dwóch poprzednich ruchów.</p>
+</div><img alt="n = 4, r = 0.5, q = (3)" class="align-center" src="../_images/square_r0_5_q3.png" />
+<p>Jak widać, poza <img class="math" src="../_images/math/693c4ea772bf8199c3c6349578c48a136ae4d0ab.png" alt="q = (1)"/> i <img class="math" src="../_images/math/0052d1050edd397be2968f1c908fe41d9fced780.png" alt="q = (3)"/>, gdzie jedno jest odbiciem lustrzanym drugiego, pozostałe fraktale są od siebie bardzo różne.</p>
+<p>Teraz spróbujemy użyć tabeli ograniczeń nakładanych na przedostatnie i przedprzedostatnie udane losowanie.</p>
 <div class="math">
 <p><img src="../_images/math/731072e23bdba184d0e028d58ecc860bc8296ac8.png" alt="n = 4, r = 0.5, q = (1,3)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
+</div><img alt="n = 4, r = 0.5, q = (1,3)" class="align-center" src="../_images/square_r0_5_q1_3.png" />
 <div class="math">
 <p><img src="../_images/math/cc07944f24cd0aa31f15f632ece5b4fd611c4776.png" alt="n = 4, r = 0.5, q = (2,2)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
+</div><img alt="n = 4, r = 0.5, q = (2,2)" class="align-center" src="../_images/square_r0_5_q2_2.png" />
 <div class="math">
 <p><img src="../_images/math/e02706a8172b7da93e8453574af7f48e82b28187.png" alt="n = 4, r = 0.5, q = (3,1)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
-<p>Jak widać w obu przypadkach <img class="math" src="../_images/math/30c67b50a33f97125170d2688da37315b1876ec7.png" alt="q = (1, 3)"/> i  <img class="math" src="../_images/math/f120c751ed43091d3738773110f08b2404d2f523.png" alt="q = (3, 1)"/>, o dziwo, otrzymaliśmy taki sam wynik, kolejna dziwna cecha chaosu, nie wiadomo kiedy pojawi się jakiś niespodziewany porządek.</p>
+</div><img alt="n = 4, r = 0.5, q = (3,1)" class="align-center" src="../_images/square_r0_5_q3_1.png" />
+<p>Jak widać w obu przypadkach <img class="math" src="../_images/math/30c67b50a33f97125170d2688da37315b1876ec7.png" alt="q = (1, 3)"/> i  <img class="math" src="../_images/math/f120c751ed43091d3738773110f08b2404d2f523.png" alt="q = (3, 1)"/>, o dziwo, otrzymaliśmy taki sam wynik
+bardzo różniący się od <img class="math" src="../_images/math/3bead061d8cda3b932504ebc8357076501df850b.png" alt="q = (2, 2)"/>. Kolejna dziwna cecha chaosu, tak na parawdę nie wiadomo kiedy pojawi się jakiś niespodziewany porządek.</p>
 </div>
 <div class="section" id="bardziej-zlozone-wielokaty">
 <h2>1.5. Bardziej złożone wielokąty<a class="headerlink" href="#bardziej-zlozone-wielokaty" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -223,21 +223,27 @@ W bieżącej publikacji zajmować się będziemy tabelami ograniczeń zawierają
 <p>W przypadku pięciokąta mam małą uwagę, mimo że na stronie <em>Wolfram</em>, proponują użyć <img class="math" src="../_images/math/77a572b6f150da689217f27902b6e0abaa14126c.png" alt="r = 3/8"/>, lepszy rezultat (segmenty fraktala bardziej się ze sobą stykają) daje <img class="math" src="../_images/math/52bc9cfecaeb8ddd74f30ae37a47dbace382d40e.png" alt="r = \frac{ 1 }{ 1 + \varphi }"/>, gdzie <img class="math" src="../_images/math/f943a0eac3e9e9e7ad984e7273d8f2a7aaaa9892.png" alt="\varphi"/> oznacza słynną formułę <em>złotego podziału</em> (golden ratio)</p>
 <div class="math">
 <p><img src="../_images/math/e21aa7ead5301899ca2a2d96364dc0c2cb11e5b7.png" alt="\varphi = \frac{1 + {\sqrt {5}}}{2} \approx 1,6180339887"/></p>
-</div><p>Przykłady z pustą tabelą ograniczeń:</p>
+</div><p>Przykłady z pustą tabelą ograniczeń dla pięciokąta foremnego:</p>
+<div class="math">
+<p><img src="../_images/math/c6977fe952eb1764e13a2fda962e4ceb10bf517e.png" alt="n = 5, r = \frac{ 1 }{ 3 }, q = ()"/></p>
+</div><img alt="n = 5, r = 0.333333, q = ()" class="align-center" src="../_images/pentagon_r0_333333.png" />
 <div class="math">
 <p><img src="../_images/math/03465f23b77923bc1ba3ce8910b64c5fee24b85a.png" alt="n = 5, r = \frac{ 1 }{ 1 + \varphi }, q = ()"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
+</div><img alt="n = 5, r = 0.333333, q = ()" class="align-center" src="../_images/pentagon_rPHI.png" />
+<p>i sześciokąta foremnego:</p>
 <div class="math">
 <p><img src="../_images/math/84982d31b46fab99bf6c694e955da4d32b7d5ee8.png" alt="n = 6, r = \frac{ 1 }{ 3 }, q = ()"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
-<p>Przykłady z niepustą tabelą ograniczeń:</p>
+</div><img alt="n = 5, r = 1/3, q = ()" class="align-center" src="../_images/hexagon_r0_333333.png" />
+<p>Przykłady z niepustą tabelą ograniczeń, jednoelementową:</p>
 <div class="math">
 <p><img src="../_images/math/a6dbd44d992a8aee1f67f9ef0ee0145389465edd.png" alt="n = 5, r = 0.5, q = (0)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
+</div><img alt="n = 5, r = 0.5, q = (0)" class="align-center" src="../_images/pentagon_r0_5_q0.png" />
+<p>i dwuelementową:</p>
 <div class="math">
 <p><img src="../_images/math/57937c6088506222c126b02d2bc08e280ea17594.png" alt="n = 6, r = 0.5, q = (1,4)"/></p>
-</div><p>[Obrazek kwadrat 3]</p>
-<p>Jak widać świat <em>gry w chaos</em> jest w stanie dostarczyć całkiem miłych wrażeń estetycznych, główne założenia pozwalają
+</div><img alt="n = 5, r = 0.5, q = (1, 4)" class="align-center" src="../_images/pentagon_r0_5_q1_4.png" />
+<p>Jak widać świat <em>gry w chaos</em> jest w stanie dostarczyć całkiem miłych wrażeń estetycznych, dać namiastkę
+torzenia dzieł plastycznych bez chodzenia na kółko plastyczne. Główne założenia, które urzekają swoją prostotą, pozwalają
 eksperymentować zarówno przez zmiany wartości parametrów <img class="math" src="../_images/math/1a282c47ca2369282d5d74ea6dcfa3a172591be9.png" alt="n,r,q"/> jak i generować trójwymiarowe fraktale w przestrzeni.
 Tu ograniczyłem się do najczęściej publikowanych obiektów.</p>
 <p>Przed nami część praktyczna, czyli, jak takie wyrosłe z chaosu fraktale wygenerować na swoim ekranie.</p>
@@ -265,7 +271,7 @@ javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do 
 <div><ul class="simple">
 <li>logiczną (logika biznesowa gry w chaos) skrypt <code class="docutils literal"><span class="pre">chaos-game.js</span></code></li>
 <li>prezentacyjną (logika generowania fraktala i obsługi części wizualnej) skrypt <code class="docutils literal"><span class="pre">fractal.js</span></code></li>
-<li>część spajająca (entry point aplikacji i kontener elementów) plik <code class="docutils literal"><span class="pre">index.html</span></code></li>
+<li>część spajająca (punkt wejścia ap likacji i kontener elementów graficznych) plik <code class="docutils literal"><span class="pre">index.html</span></code></li>
 </ul>
 </div></blockquote>
 <div class="section" id="logika-gry-w-chaos">

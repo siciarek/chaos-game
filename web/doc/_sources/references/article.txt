@@ -39,9 +39,10 @@ W wyniku manipulacji parameterami :math:`n, r, q` oraz :math:`times`, podobno, m
 Dla wygody zakładamy, że
 
     * wszytkie wielokąty będą foremne,
+    * pierwszy wierzchołek każdego wielokąta będzie umiejscowiony na górze i będzie posiadał takie same współrzędne,
     * pierwszy *punkt aktywny* będzie miał współrzędne :math:`(0, 0)`,
     * wartości współrzędnych wierzchołków, będą większe od zera (jak to w grafice komputerowej),
-    * zaś domyślna ilość powtórzeń :math:`times = 10000`.
+    * zaś domyślna ilość powtórzeń :math:`times = 100000`.
 
 Oczywiście zachęcam do eksperymentowania z wartościami tych ustawień, jednak uprzedzam, nie mają zbyt dużego wpływu na osiągane wyniki.
 
@@ -62,7 +63,9 @@ Co oznacza:
 
 Oto co otrzymujemy.
 
-[Obrazek trójkąt]
+.. image:: ../images/fractals/triangle.*
+    :alt: n = 3, r = 0.5, q = ()
+    :align: center
 
 Pojawił się Trójkąt Sierpińskiego, całkiem atrakcyjny wizualnie układ, mimo losowości wybierania wierzchołków.
 Świetnie, spróbujmy teraz z większą ilością wierzchołków, następny w kolejce *kwadrat*, opisujemy go następująco:
@@ -71,23 +74,27 @@ Pojawił się Trójkąt Sierpińskiego, całkiem atrakcyjny wizualnie układ, m
 
     n = 4, r = 0.5, q = ()
 
-
-[Obrazek kwadrat 1]
+.. image:: ../images/fractals/square.*
+    :alt: n = 4, r = 0.5, q = ()
+    :align: center
 
 Rezultat niestety nie zachwyca. Spróbujmy dla większej ilości wierzchołków, np. użyjmy *pięciokąta i sześciokąta foremnego*.
 
 .. math::
 
-    n = 4, r = 0.25, q = ()
+    n = 5, r = 0.5, q = ()
 
-[Obrazek pięciokąt 1]
-
+.. image:: ../images/fractals/pentagon.*
+    :alt: n = 5, r = 0.5, q = ()
+    :align: center
 
 .. math::
 
-    n = 4, r = 0.25, q = ()
+    n = 6, r = 0.5, q = ()
 
-[Obrazek sześciokąt 1]
+.. image:: ../images/fractals/hexagon.*
+    :alt: n = 6, r = 0.5, q = ()
+    :align: center
 
 Chyba nie tędy droga, chaos jak to chaos rządzi się swoimi prawami, bardzo ładnie zadziałał na trójkącie, ale zmiana ilości wierzchołków
 daje wyniki na poziomie szumu, jedno co widzimy, to to, że pomimo wyboru punktu startowego na zewnątrz figury, prawie wszystkie punkty
@@ -100,68 +107,66 @@ ale zmienimy parametr :math:`r` o połowę.
 
     n = 4, r = 0.25, q = ()
 
-[Obrazek kwadrat 2]
+.. image:: ../images/fractals/square_r0_25.*
+    :alt: n = 4, r = 0.25, q = ()
+    :align: center
 
 No to wygląda znacznie lepiej, duże uporządkowanie, aczkolwiek dużo punktów trafiło na niewielką powierzchnię.
-Ciekawe co stanie się jeżeli pozmieniamy nieco parametr :math:`r`, np. nadając mu wartości odpowiednio 0.4, 0.6, 0.75, 0.9 i 0.99.
+Ciekawe co stanie się jeżeli pozmieniamy nieco parametr :math:`r`, np. nadając mu wartości odpowiednio 0.4, 0.6, 0.75 i 0.9.
 
 
 .. math::
 
     n = 4, r = 0.4, q = ()
 
-[Obrazek kwadrat 2]
+.. image:: ../images/fractals/square_r0_4.*
+    :alt: n = 4, r = 0.4, q = ()
+    :align: center
+
+
 
 .. math::
 
     n = 4, r = 0.6, q = ()
 
-[Obrazek kwadrat 2]
+.. image:: ../images/fractals/square_r0_6.*
+    :alt: n = 4, r = 0.6, q = ()
+    :align: center
+
+
 
 .. math::
 
     n = 4, r = 0.75, q = ()
 
-[Obrazek kwadrat 2]
+.. image:: ../images/fractals/square_r0_75.*
+    :alt: n = 4, r = 0.75, q = ()
+    :align: center
+
+
 
 .. math::
 
     n = 4, r = 0.9, q = ()
 
-[Obrazek kwadrat 2]
+.. image:: ../images/fractals/square_r0_9.*
+    :alt: n = 4, r = 0.9, q = ()
+    :align: center
 
-.. math::
-
-    n = 4, r = 0.99, q = ()
-
-[Obrazek kwadrat 2]
 
 Widać, że uporządkowanie chaosu przebiega nieregularnie i o ile dla wartości 0.25 i 0.4 wygląda obiecująco, przy 0.5 zanika,
 zaś dla 0.6 zdaje się wprowadzać jakieś "nitkowate" uporządkowanie o tyle dla > 0.75 wszystko zaczyna być wchłaniane przez
 "czarną dziurę". Chciałoby się powiedzieć jak to w chaosie, biorąc pod uwagę pierwotne znaczenie tego słowa,
 jako kosmicznej pramaterii.
 
-Pozostał nam jeszcze jeden parameter do regulacji określony jako *zadane ograniczenia* :math:`q`.
-Trochę, na temat jaki charakter będą miały te ograniczenia, np. *nowy punkt nie może być taki sam jak poprzedni*,
-przy okazji wrócimy do startowej wartości parametru :math:`r = 0.5`. Ogranicznie *nowy punkt nie może być taki sam jak poprzedni*
-zapiszemy jako :math:`q = (0)`.
-
-
-.. math::
-
-    n = 4, r = 0.5, q = (0)
-
-[Obrazek kwadrat 2]
-
-No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne. Brawo Ty.
-
-
 
 Więcej o tabeli ograniczeń
 ==========================
 
-W poprzednim przykładzie po raz pierwszy użyliśmy niepustej tabeli ograniczeń :math:`q`, należy się więc kilka słów z czym
-to się je, to znaczy, co zawiera ta tablica. Wyjdziemy jednak od sposobu w jaki losowane są wierzchołki, otóż wierzchołki
+Dotychczas korzystaliśmy wyłącznie z pustej tabeli ograniczeń :math:`q`, zanim zaczniemy tam umieszczać wartości,
+należy się kilka słów wyjaśnienia, z czym to się je, to znaczy, co zawiera ta tablica i jak z niej korzystać.
+
+Wyjdziemy jednak od sposobu w jaki losowane są wierzchołki, otóż wierzchołki
 figury użytej do gry przechowywane są w tablicy i w wyniku losowania wybierany jest jeden z indeksów tej tablicy, liczba całkowita
 z przedziału :math:`[0, n - 1]`. W tabeli :math:`q` umieszczone będą *odległości* wylosowanego indeksu w stosunku do zbioru ostatnich
 losowań. Odległość oznacza ilość pozycji od danego indeksu. Weźmy pod uwagę zbiór czterech punktów:
@@ -178,6 +183,11 @@ oznacza, ni mniej ni więcej, tylko nowo wylosowany punkt, nie może być użyty
 Odległość 1 oznacza wierzchołki znajdujące się w odległości 1 (oczywiście w pierścieniu modulo :math:`n`) od wybranego wierzchołka,
 czyli dla podanego punktu :math:`(0, 0)` będzie to :math:`(200, 0)`. Analogicznie odległość 2 oznacza dla tego przypadku
 :math:`(200, 200)` a 3 :math:`(0, 200)`.
+
+Powyższe nakłada podstawowe ograniczenie na dopuszczalne wartości:
+
+Każda wartość tablicy :math:`q` musi być liczbą całkowitą i należeć do zbioru :math:`{0, 1, ..., n - 1, n}`
+
 
 Ciekawiej zaczyna się robić gdy tabela ograniczeń ma więcej niż jeden element, działa to mniej więcej tak, że na pozycji
 
@@ -214,54 +224,92 @@ W bieżącej publikacji zajmować się będziemy tabelami ograniczeń zawierają
 Gra z tabelą ograniczeń
 =======================
 
-Wracamy do naszego kwadratu i spróbujemy wykonać ćwiczenie z jednoelementową tabelą ograniczeń o wartościach 1, 2 i 3.
+Postaramy się teraz założyć ograniczeni przy pomocy niepustej tablicy :math:`q`.
+
+Pozostaniemy przy kwadracie :math:`n = 4`, wartości :math:`r = 0.5` i spróbujemy wykonać ćwiczenie
+z jednoelementową tabelą ograniczeń o wartościach, odpowiednio 0, 1, 2 i 3.
+
+
+.. math::
+
+    n = 4, r = 0.5, q = (0)
+
+.. image:: ../images/fractals/square_r0_5_q0.*
+    :alt: n = 4, r = 0.5, q = (0)
+    :align: center
+
+
+
+No, to można nazwać sukcesem, elegancki fraktal przypominający mapę albo jakieś mury obronne. Próbujemy kolejnych wartości.
+
+
 
 .. math::
 
     n = 4, r = 0.5, q = (1)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/square_r0_5_q1.*
+    :alt: n = 4, r = 0.5, q = (1)
+    :align: center
+
+
+
 
 .. math::
 
     n = 4, r = 0.5, q = (2)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/square_r0_5_q2.*
+    :alt: n = 4, r = 0.5, q = (2)
+    :align: center
+
+
+
 
 .. math::
 
     n = 4, r = 0.5, q = (3)
 
-[Obrazek kwadrat 3]
-
-Jak widać, poza :math:`q = (1)` i :math:`q = (3)`, które wykazują wyraźne podobieństwo, pozostałe fraktale są od siebie bardzo różne.
-
-Teraz spróbujmy założyć złożone ograniczenia do dwóch poprzednich ruchów.
+.. image:: ../images/fractals/square_r0_5_q3.*
+    :alt: n = 4, r = 0.5, q = (3)
+    :align: center
 
 
+Jak widać, poza :math:`q = (1)` i :math:`q = (3)`, gdzie jedno jest odbiciem lustrzanym drugiego, pozostałe fraktale są od siebie bardzo różne.
+
+Teraz spróbujemy użyć tabeli ograniczeń nakładanych na przedostatnie i przedprzedostatnie udane losowanie.
 
 .. math::
 
     n = 4, r = 0.5, q = (1,3)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/square_r0_5_q1_3.*
+    :alt: n = 4, r = 0.5, q = (1,3)
+    :align: center
+
 
 
 .. math::
 
     n = 4, r = 0.5, q = (2,2)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/square_r0_5_q2_2.*
+    :alt: n = 4, r = 0.5, q = (2,2)
+    :align: center
 
 
 .. math::
 
     n = 4, r = 0.5, q = (3,1)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/square_r0_5_q3_1.*
+    :alt: n = 4, r = 0.5, q = (3,1)
+    :align: center
 
 
-Jak widać w obu przypadkach :math:`q = (1, 3)` i  :math:`q = (3, 1)`, o dziwo, otrzymaliśmy taki sam wynik, kolejna dziwna cecha chaosu, nie wiadomo kiedy pojawi się jakiś niespodziewany porządek.
+
+Jak widać w obu przypadkach :math:`q = (1, 3)` i  :math:`q = (3, 1)`, o dziwo, otrzymaliśmy taki sam wynik
+bardzo różniący się od :math:`q = (2, 2)`. Kolejna dziwna cecha chaosu, tak na parawdę nie wiadomo kiedy pojawi się jakiś niespodziewany porządek.
 
 
 Bardziej złożone wielokąty
@@ -275,38 +323,61 @@ W przypadku pięciokąta mam małą uwagę, mimo że na stronie *Wolfram*, propo
 
     \varphi = \frac{1 + {\sqrt {5}}}{2} \approx 1,6180339887
 
-Przykłady z pustą tabelą ograniczeń:
+Przykłady z pustą tabelą ograniczeń dla pięciokąta foremnego:
+
+.. math::
+
+    n = 5, r = \frac{ 1 }{ 3 }, q = ()
+
+.. image:: ../images/fractals/pentagon_r0_333333.*
+    :alt: n = 5, r = 0.333333, q = ()
+    :align: center
+
+
 
 .. math::
 
     n = 5, r = \frac{ 1 }{ 1 + \varphi }, q = ()
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/pentagon_rPHI.*
+    :alt: n = 5, r = 0.333333, q = ()
+    :align: center
+
+i sześciokąta foremnego:
 
 .. math::
 
     n = 6, r = \frac{ 1 }{ 3 }, q = ()
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/hexagon_r0_333333.*
+    :alt: n = 5, r = 1/3, q = ()
+    :align: center
 
 
-Przykłady z niepustą tabelą ograniczeń:
+Przykłady z niepustą tabelą ograniczeń, jednoelementową:
 
 
 .. math::
 
     n = 5, r = 0.5, q = (0)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/pentagon_r0_5_q0.*
+    :alt: n = 5, r = 0.5, q = (0)
+    :align: center
+
+i dwuelementową:
 
 .. math::
 
     n = 6, r = 0.5, q = (1,4)
 
-[Obrazek kwadrat 3]
+.. image:: ../images/fractals/pentagon_r0_5_q1_4.*
+    :alt: n = 5, r = 0.5, q = (1, 4)
+    :align: center
 
 
-Jak widać świat *gry w chaos* jest w stanie dostarczyć całkiem miłych wrażeń estetycznych, główne założenia pozwalają
+Jak widać świat *gry w chaos* jest w stanie dostarczyć całkiem miłych wrażeń estetycznych, dać namiastkę
+torzenia dzieł plastycznych bez chodzenia na kółko plastyczne. Główne założenia, które urzekają swoją prostotą, pozwalają
 eksperymentować zarówno przez zmiany wartości parametrów :math:`n,r,q` jak i generować trójwymiarowe fraktale w przestrzeni.
 Tu ograniczyłem się do najczęściej publikowanych obiektów.
 
@@ -337,7 +408,7 @@ Zgrubny podział na częśći:
 
     * logiczną (logika biznesowa gry w chaos) skrypt ``chaos-game.js``
     * prezentacyjną (logika generowania fraktala i obsługi części wizualnej) skrypt ``fractal.js``
-    * część spajająca (entry point aplikacji i kontener elementów) plik ``index.html``
+    * część spajająca (punkt wejścia ap likacji i kontener elementów graficznych) plik ``index.html``
 
 Logika gry w chaos
 ~~~~~~~~~~~~~~~~~~
