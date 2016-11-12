@@ -373,10 +373,19 @@ i dwuelementową:
 
 .. math::
 
-    n = 6, r = 0.5, q = (1,4)
+    n = 5, r = 0.5, q = (1,4)
 
 .. image:: ../images/fractals/pentagon_r0_5_q1_4.*
     :alt: n = 5, r = 0.5, q = (1, 4)
+    :align: center
+
+
+.. math::
+
+    n = 6, r = 0.5, q = (1,5)
+
+.. image:: ../images/fractals/hexagon_r0_5_q1_5.*
+    :alt: n = 6, r = 0.5, q = (1, 5)
     :align: center
 
 
