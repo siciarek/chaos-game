@@ -223,6 +223,8 @@ bardzo różniący się od <img class="math" src="../_images/math/3bead061d8cda3
 <p>W przypadku pięciokąta mam małą uwagę, mimo że na stronie <em>Wolfram</em>, proponują użyć <img class="math" src="../_images/math/77a572b6f150da689217f27902b6e0abaa14126c.png" alt="r = 3/8"/>, lepszy rezultat (segmenty fraktala bardziej się ze sobą stykają) daje <img class="math" src="../_images/math/52bc9cfecaeb8ddd74f30ae37a47dbace382d40e.png" alt="r = \frac{ 1 }{ 1 + \varphi }"/>, gdzie <img class="math" src="../_images/math/f943a0eac3e9e9e7ad984e7273d8f2a7aaaa9892.png" alt="\varphi"/> oznacza słynną formułę <em>złotego podziału</em> (golden ratio)</p>
 <div class="math">
 <p><img src="../_images/math/e21aa7ead5301899ca2a2d96364dc0c2cb11e5b7.png" alt="\varphi = \frac{1 + {\sqrt {5}}}{2} \approx 1,6180339887"/></p>
+</div><div class="math">
+<p><img src="../_images/math/34c726cb7838d144db08f92590891e912774be90.png" alt="r = \frac{1}{1 - \varphi} \approx 0,38196601125010515"/></p>
 </div><p>Przykłady z pustą tabelą ograniczeń dla pięciokąta foremnego:</p>
 <div class="math">
 <p><img src="../_images/math/c6977fe952eb1764e13a2fda962e4ceb10bf517e.png" alt="n = 5, r = \frac{ 1 }{ 3 }, q = ()"/></p>
@@ -278,6 +280,8 @@ javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do 
 <h3>1.6.1. Logika gry w chaos<a class="headerlink" href="#logika-gry-w-chaos" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">ChaosGame</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">q</span><span class="p">)</span> <span class="p">{</span>
 
+    <span class="c1">// Private variables</span>
+
     <span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">r</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">q</span> <span class="o">=</span> <span class="nx">q</span><span class="p">;</span>
@@ -285,89 +289,121 @@ javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do 
     <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span> <span class="o">=</span> <span class="p">[];</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">log</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
 
+    <span class="c1">// Public interface</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Creates the list of polygon vertices</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param width - image width</span>
+<span class="cm">     * @param height - image height</span>
+<span class="cm">     * @param radius - radius of the circle where the polygon is &quot;wpisany&quot;</span>
+<span class="cm">     */</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
+
         <span class="kd">var</span> <span class="nx">angle</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span>
 
-        <span class="kd">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span> <span class="o">=</span> <span class="p">[];</span>
+
+        <span class="c1">// Image center point</span>
+        <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span>
             <span class="nx">x</span><span class="o">:</span> <span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
             <span class="nx">y</span><span class="o">:</span> <span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="p">};</span>
 
-        <span class="kd">var</span> <span class="nx">vertex</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="c1">// Create the first vertex</span>
+        <span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">x</span><span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span>
+            <span class="nx">y</span><span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">radius</span>
+        <span class="p">};</span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// and add it to the vertices list</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">vertex</span> <span class="o">=</span> <span class="p">{</span>
-                    <span class="nx">x</span><span class="o">:</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span>
-                    <span class="nx">y</span><span class="o">:</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">radius</span>
-                <span class="p">};</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span>
-                <span class="nx">vertex</span> <span class="o">=</span> <span class="p">{</span>
-                    <span class="nx">x</span><span class="o">:</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span>
-                    <span class="nx">y</span><span class="o">:</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">vertex</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="nx">center</span><span class="p">.</span><span class="nx">y</span>
-                <span class="p">};</span>
-            <span class="p">}</span>
+        <span class="c1">// Create other vertices and add them to the vertices list.</span>
+        <span class="c1">// New vertices are created by rotating the previous point about an image center point.</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-            <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">vertex</span><span class="p">);</span>
+            <span class="nx">v</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="nx">x</span><span class="o">:</span> <span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span>
+                <span class="nx">y</span><span class="o">:</span> <span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">y</span>
+            <span class="p">};</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">};</span>
 
+    <span class="cm">/**</span>
+<span class="cm">     * Returns the point calculated from given (x, y) coordinates</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param x</span>
+<span class="cm">     * @param y</span>
+<span class="cm">     * @returns {{x: number, y: number}} new point</span>
+<span class="cm">     */</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">getNextPoint</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
 
-        <span class="kd">var</span> <span class="nx">vertex</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getVertex</span><span class="p">();</span>
+        <span class="c1">// Chose the vertex</span>
+        <span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getVertex</span><span class="p">();</span>
 
+        <span class="c1">// and return new active point distant from the chosen vertex this.r * distance</span>
+        <span class="c1">// between the chosen vertex and the point generated previously.</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="nx">x</span><span class="o">:</span> <span class="nx">vertex</span><span class="p">.</span><span class="nx">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">,</span>
-            <span class="nx">y</span><span class="o">:</span> <span class="nx">vertex</span><span class="p">.</span><span class="nx">y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span>
-        <span class="p">}</span>
+            <span class="nx">x</span><span class="o">:</span> <span class="nx">v</span><span class="p">.</span><span class="nx">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">,</span>
+            <span class="nx">y</span><span class="o">:</span> <span class="nx">v</span><span class="p">.</span><span class="nx">y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">r</span>
+        <span class="p">};</span>
     <span class="p">};</span>
 
+    <span class="c1">// Private methods</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Validates chosen vertex</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param v</span>
+<span class="cm">     * @returns {boolean}</span>
+<span class="cm">     */</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">valid</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
 
-        <span class="kd">var</span> <span class="nx">enabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="c1">// If limitations list is empty every vertices index is valid</span>
+        <span class="kd">var</span> <span class="nx">enabled</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+        <span class="c1">// Check vertice index against every limitations list element</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-            <span class="nx">enabled</span> <span class="o">=</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
-                <span class="o">&amp;&amp;</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">enabled</span> <span class="o">=</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+                    <span class="o">&amp;&amp;</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="nx">i</span><span class="p">)</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">enabled</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">);</span>
+            <span class="p">}</span>
 
-                <span class="o">||</span>
-
-                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
-                <span class="o">&amp;&amp;</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
-            <span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="p">((</span><span class="nx">v</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">);</span>
-
-                <span class="k">if</span> <span class="p">(</span><span class="nx">c</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-                <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">enabled</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="nx">enabled</span><span class="p">;</span>
     <span class="p">};</span>
 
+    <span class="cm">/**</span>
+<span class="cm">     * Returns vertex as a point and records its index in the log</span>
+<span class="cm">     *</span>
+<span class="cm">     * @returns {*}</span>
+<span class="cm">     */</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">getVertex</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
-        <span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
+        <span class="c1">// Choose the vertice index and validate it</span>
         <span class="k">do</span> <span class="p">{</span>
-            <span class="nx">v</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">valid</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
+            <span class="nx">i</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">valid</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">[</span><span class="nx">v</span><span class="p">];</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
     <span class="p">};</span>
 <span class="p">}</span>
 </pre></div>
@@ -389,7 +425,7 @@ javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do 
         <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
         <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fgcolor</span><span class="p">;</span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">times</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="nx">times</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
 
             <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
@@ -420,12 +456,6 @@ javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do 
 
 <span class="nt">&lt;script&gt;</span>
 
-    <span class="cm">/**</span>
-<span class="cm">     * When n = 5, use golden ratio formula for better result</span>
-<span class="cm">     * var PHI = (1 + Math.sqrt(5)) / 2;</span>
-<span class="cm">     * var n = 3, r = 1 / (1 + PHI), q = [];</span>
-<span class="cm">     */</span>
-
     <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">r</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nx">q</span> <span class="o">=</span> <span class="p">[];</span>
 
     <span class="kd">var</span> <span class="nx">times</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">;</span>
@@ -433,7 +463,6 @@ javascript bo naturalnie się komponuje z HTML5 i może być użyty zarówno do 
     <span class="kd">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="p">(</span><span class="nx">size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">20</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">bgcolor</span> <span class="o">=</span> <span class="s1">&#39;#FFF&#39;</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">fgcolor</span> <span class="o">=</span> <span class="s1">&#39;#000&#39;</span><span class="p">;</span>
-
 
     <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">);</span>
     <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>

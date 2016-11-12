@@ -323,6 +323,10 @@ W przypadku pięciokąta mam małą uwagę, mimo że na stronie *Wolfram*, propo
 
     \varphi = \frac{1 + {\sqrt {5}}}{2} \approx 1,6180339887
 
+.. math::
+
+    r = \frac{1}{1 - \varphi} \approx 0,38196601125010515
+
 Przykłady z pustą tabelą ograniczeń dla pięciokąta foremnego:
 
 .. math::

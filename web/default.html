@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chaos Game</title>
+</head>
+
+<body style="margin:auto;background:grey;text-align:center">
+
+<canvas id="board"></canvas>
+
+<script src="chaos-game.js"></script>
+<script src="fractal.js"></script>
+
+<script>
+
+    /**
+     * When n = 5, use golden ratio formula for better result
+     * var PHI = (1 + Math.sqrt(5)) / 2;
+     * var n = 3, r = 1 / (1 + PHI), q = [];
+     */
+    var PHI = (1 + Math.sqrt(5)) / 2;
+
+    console.log(1 / (1 + PHI));
+
+    var n = 3, r = 0.5, q = [];
+
+    var times = 100000;
+    var size = 640;
+    var radius = (size / 2) - 20;
+    var bgcolor = '#FFF';
+    var fgcolor = '#000';
+
+</script>
+
+<script src="helper.js"></script>
+
+<script>
+
+    var canvas = document.getElementById('board');
+    canvas.width = size;
+    canvas.height = size;
+
+    var game = new ChaosGame(n, r, q);
+    game.init(canvas.width, canvas.height, radius);
+
+    var fractal = new Fractal(game, times, canvas, bgcolor, fgcolor);
+    fractal.render(0, 0);
+
+</script>
+
+</body>
+</html>
